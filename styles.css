@@ -1,0 +1,340 @@
+:root {
+  --noite: #101314;
+  --noite-2: #181d1e;
+  --carvao: #20262a;
+  --cobre: #c2793d;
+  --cobre-forte: #a5622e;
+  --vinho: #5e2323;
+  --creme: #ede7da;
+  --creme-fraca: #9c978a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 14px;
+  overflow-x: hidden;
+  background:
+    linear-gradient(180deg, rgba(10, 12, 13, 0.55) 0%, rgba(10, 12, 13, 0.82) 100%),
+    url("https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=80") center/cover no-repeat fixed;
+  color: var(--creme);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.convite {
+  width: min(100%, 420px);
+  position: relative;
+}
+
+.luzes-wrap {
+  padding: 0 4px 20px;
+}
+
+.luzes-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.fio {
+  fill: none;
+  stroke: rgba(194, 121, 61, 0.35);
+  stroke-width: 1.5;
+}
+
+.lampada {
+  transform-origin: center;
+  animation: piscar 3.2s ease-in-out infinite;
+}
+
+.lampada:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.lampada:nth-child(3) {
+  animation-delay: 0.9s;
+}
+
+.lampada:nth-child(4) {
+  animation-delay: 0.15s;
+}
+
+.lampada:nth-child(5) {
+  animation-delay: 1.2s;
+}
+
+.lampada:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+.lampada:nth-child(7) {
+  animation-delay: 1.6s;
+}
+
+@keyframes piscar {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  text-align: center;
+  letter-spacing: 0.16em;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--creme-fraca);
+}
+
+.titulo-grande {
+  margin: 0;
+  text-align: center;
+  font-size: clamp(64px, 18vw, 108px);
+  line-height: 0.88;
+  color: var(--creme);
+  font-weight: 700;
+  letter-spacing: -3px;
+}
+
+.regua {
+  width: 64px;
+  height: 3px;
+  background: var(--cobre);
+  margin: 14px auto 16px;
+}
+
+.subtitulo {
+  margin: 0 0 26px;
+  text-align: center;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--creme-fraca);
+}
+
+.moldura {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(194, 121, 61, 0.4);
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.7), inset 0 0 0 6px rgba(16, 19, 20, 0.9);
+  background: #000;
+}
+
+.moldura img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.02) contrast(1.05);
+}
+
+.moldura::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(16, 19, 20, 0) 55%, rgba(16, 19, 20, 0.75) 100%);
+  pointer-events: none;
+}
+
+.moldura::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(194, 121, 61, 0.3);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.toque {
+  position: absolute;
+  left: 80%;
+  top: 80%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: var(--cobre);
+}
+
+.anel {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(194, 121, 61, 0.18);
+  border: 1.5px solid var(--cobre);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.anel::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(194, 121, 61, 0.55);
+  animation: pulso 2.2s ease-out infinite;
+}
+
+@keyframes pulso {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.9;
+  }
+  75% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+}
+
+.anel svg {
+  width: 22px;
+  height: 22px;
+}
+
+.toque-legenda {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--creme);
+  background: rgba(16, 19, 20, 0.75);
+  padding: 5px 11px;
+  border-radius: 4px;
+  border: 1px solid rgba(194, 121, 61, 0.45);
+  white-space: nowrap;
+}
+
+.toque:active .anel {
+  transform: scale(0.92);
+}
+
+.detalhes {
+  margin-top: 26px;
+  text-align: center;
+}
+
+.linha-nome {
+  margin: 0 0 18px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--creme-fraca);
+  letter-spacing: 0.04em;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 0;
+  border-top: 1px solid rgba(201, 192, 172, 0.16);
+}
+
+.item:last-of-type {
+  border-bottom: 1px solid rgba(201, 192, 172, 0.16);
+}
+
+.item .rotulo {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--cobre);
+}
+
+.item .valor {
+  font-size: 19px;
+  color: var(--creme);
+}
+
+.item .valor small {
+  display: block;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  color: var(--creme-fraca);
+  margin-top: 3px;
+  font-style: normal;
+}
+
+.aviso {
+  margin: 22px 0 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--creme-fraca);
+  text-align: center;
+  padding: 0 8px;
+}
+
+.botao-confirmar {
+  display: block;
+  width: 100%;
+  margin-top: 18px;
+  padding: 15px 20px;
+  background: var(--cobre-forte);
+  color: var(--creme);
+  text-align: center;
+  text-decoration: none;
+  border-radius: 6px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  border: 1px solid rgba(194, 121, 61, 0.4);
+  transition: background 0.2s ease;
+}
+
+.botao-confirmar:hover,
+.botao-confirmar:focus-visible {
+  background: #8a5228;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lampada,
+  .anel::before {
+    animation: none;
+  }
+}
